@@ -47,9 +47,11 @@ namespace TodoList
                     MessageBox.Show(@"Can't find user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show(@"Can't find user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(e.ToString());
+                MessageBox.Show(@"Can't find userd", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         
@@ -60,7 +62,6 @@ namespace TodoList
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            Close();
             MainForm.Close();
         }
 
@@ -104,6 +105,12 @@ namespace TodoList
         private void Login_MouseUp(object sender, MouseEventArgs e)
         {
             _dragging = false;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            username.Text = "firstUser";
+            password.Text = "passwordDeFou";
         }
     }
 }
